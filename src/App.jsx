@@ -1,14 +1,19 @@
 import React from "react";
+import Header from "./components/Header"
 import Clock from "./components/Clock";
 import InputsAndPresets from "./components/InputsAndPresets"
+import { Container } from './components/styles/Container.styled'
 
 function App() {
   return (
-    <div className="App">
-      <Clock />
-      <InputsAndPresets />
-    </div>
-  );
+    <>
+      <Header />
+      <Container>
+        <Clock />
+        <InputsAndPresets />
+      </Container>
+    </>
+  )
 }
 
 

@@ -1,4 +1,5 @@
-import React from "react"
+// Importing React is no longer needed as of React 17. 
+// import React from "react"
 
 const CountdownTimer = () => {
 
