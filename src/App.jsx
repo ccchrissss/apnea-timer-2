@@ -1,12 +1,12 @@
 import React from "react";
-import CountdownTimer from "./components/Countdown";
-import Test from "./components/Test"
+import Clock from "./components/Clock";
+import InputsAndPresets from "./components/InputsAndPresets"
 
 function App() {
   return (
     <div className="App">
-      <CountdownTimer />
-      <Test />
+      <Clock />
+      <InputsAndPresets />
     </div>
   );
 }
