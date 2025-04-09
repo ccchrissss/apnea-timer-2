@@ -1,11 +1,11 @@
-
+import { StyledHeader } from "./styles/Header.styled"
 
 const Header = () => {
 
   return (
-    <header>
+    <StyledHeader>
       <h1>Apnea Timer 2</h1>
-    </header>
+    </StyledHeader>
   )
 }
 
