@@ -1,10 +1,13 @@
-import { StyledFooter } from "./styles/Footer.styled"
+import { StyledFooter } from './styles/Footer.styled'
+import { Container } from './styles/Container.styled'
 
 const Footer = () => {
 
   return (
     <StyledFooter>
-      <h3>Thanks for stopping by. Don't forget to breathe</h3>
+      <Container>
+        <h3>Thanks for stopping by. Don't forget to breathe</h3>
+      </Container>
     </StyledFooter>
   )
 }

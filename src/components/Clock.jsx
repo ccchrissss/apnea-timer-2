@@ -1,5 +1,7 @@
 // Importing React is no longer needed as of React 17. 
 // import React from "react"
+import { StyledClock } from './styles/Clock.styled'
+
 
 const CountdownTimer = () => {
 
@@ -23,10 +25,10 @@ const TimerButtons = () => {
 const Clock = () => {
 
   return (
-    <section id="clock-display">
+    <StyledClock>
       <CountdownTimer />
       <TimerButtons />
-    </section>
+    </StyledClock>
   )
 }
 
