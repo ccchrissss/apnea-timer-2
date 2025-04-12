@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Clock from "./components/Clock"
 import InputsAndPresets from "./components/InputsAndPresets"
+import Timer from "./components/Timer"
 import { Container } from './components/styles/Container.styled'
 import GlobalStyles from './components/styles/Global'
 
@@ -14,8 +15,7 @@ function App() {
         <GlobalStyles />
         <Header />
         <Container>
-          <Clock />
-          <InputsAndPresets />
+          <Timer />
         </Container>
         <Footer />
       </>

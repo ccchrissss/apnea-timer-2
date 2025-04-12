@@ -5,10 +5,10 @@ const Inputs = () => {
   return (
     <>
       <div class="inputs">
-        <input id="minutes-input" type="text" placeholder="Minutes" />
+        <input id="minutes-input" type="number" placeholder="Minutes" />
         {/* <button id="set-minutes">Set</button> */}
         {/* <div class="break"></div> */}
-        <input id="seconds-input" type="text" placeholder="Seconds" />
+        <input id="seconds-input" type="number" placeholder="Seconds" />
         <button id="set-seconds">Set</button>
       </div>
       {/* <div class="break"></div> */}
