@@ -23,6 +23,11 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
+
+  .break {
+    flex-basis: 100%;
+    height: 0;
+  }
 `
 
 
