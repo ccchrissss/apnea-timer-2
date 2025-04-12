@@ -6,7 +6,10 @@ import { StyledClock } from './styles/Clock.styled'
 const CountdownTimer = () => {
 
   return (
-    <p id="countdown">0:00</p>
+    <>
+      <p id="countdown">0:00</p>
+      <div class="break"></div>
+    </>
   )
 }
 
@@ -14,10 +17,11 @@ const TimerButtons = () => {
 
   return (
     <div class="timer-btns">
-        <button id="start-timer">Start Timer</button>
-        <button id="stop-timer">Stop Timer</button> 
-        <button id="clear-timer">Clear Timer</button>
-        <button id="reset-timer">Reset To Last Time</button>
+        <button id="start-timer">Start</button>
+        <button id="stop-timer">Stop</button>
+        {/* <div class="break"></div> */}
+        <button id="clear-timer">Clear </button>
+        <button id="reset-timer">Reset to Last</button>
     </div>
   )
 }
