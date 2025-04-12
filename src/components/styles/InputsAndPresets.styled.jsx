@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const StyledInputsAndPresets = styled.section`
 
-  margin: 1rem;
   display: flex;
   flex-wrap: wrap;
   row-gap: 1rem;
+  justify-content: center;
+  margin: 1rem;
+  font-size: rem;
 
   .inputs {
-      font-size: 50px;
       display: flex;
       flex-basis: 50%;
       /* flex-wrap: wrap; */
@@ -16,8 +17,24 @@ export const StyledInputsAndPresets = styled.section`
       column-gap: 0.5rem;
   }
   .inputs > * {
+    font-size: 1rem;
     height: 2.5rem;
     max-width: 5rem;
+  }
+  #minutes-input {
+    border: solid 2px gray;
+    border-radius: 5px;
+  }
+  #seconds-input {
+    border: solid 2px gray;
+    border-radius: 5px;
+  }
+  
+  button {
+    font-size: 1rem;
+    border: solid gray;
+    border-radius: 10px;
+    min-width: 4.5rem;
   }
 
   .preset-btns-big-box {
@@ -31,8 +48,8 @@ export const StyledInputsAndPresets = styled.section`
   .preset-btns-sml-box {
     display: flex;
     column-gap: 0.5rem;
-    min-height: 2rem;
-    min-width:
+    min-height: 2.5rem;
+    /* min-width: */
   }
 
 

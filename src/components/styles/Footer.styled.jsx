@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
 export const StyledFooter = styled.footer`
-  /* background-color: red; */
+  margin: 3rem 1rem;
 `
