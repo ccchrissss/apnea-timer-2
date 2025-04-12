@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
+  
+  h1 {
+    text-align: center;
+  }
+
+  
   /* background-color: #f1f1f1;
   padding: 30px;
   text-align: center;

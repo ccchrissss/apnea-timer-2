@@ -1,4 +1,4 @@
-
+import { StyledInputsAndPresets } from './styles/InputsAndPresets.styled'
 
 const Inputs = () => {
 
@@ -28,10 +28,10 @@ const PresetTimes = () => {
 const InputsAndPresets = () => {
 
   return (
-    <section id="inputs-and-preset-btns">
+    <StyledInputsAndPresets>
       <Inputs />
       <PresetTimes />
-    </section>
+    </StyledInputsAndPresets>
   )
 }
 
