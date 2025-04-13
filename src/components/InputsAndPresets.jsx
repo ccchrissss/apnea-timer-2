@@ -1,4 +1,5 @@
 import { StyledInputsAndPresets } from './styles/InputsAndPresets.styled'
+import { useState } from 'react'
 
 const Inputs = () => {
 
@@ -18,13 +19,33 @@ const Inputs = () => {
 
 const PresetTimes = () => {
 
+  const [minutes, setMinutes] = useState(0)
+  const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+  const handleClick = (mins, secs) => {
+    setMinutes(mins)
+    setSeconds(
+      secs.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
+    )
+  }
+
+  
+
   return (
     <div class="preset-btns-big-box">
+      <div id="mini-clock">
+        <span id="mins">
+          {minutes}:
+        </span>
+        <span id="secs">
+          {seconds}
+        </span>
+      </div>
         <div class="preset-btns-sml-box">
-            <button id="set-1-min">1 min</button>
-            <button id="set-20-sec">20 sec</button>
+            <button id="set-1-min" onClick={() => handleClick(1, 0)}>1 min</button>
+            <button id="set-20-sec"  onClick={() => handleClick(0, 20)}>20 sec</button>
             {/* <div class="break"></div> */}
-            <button id="set-10-min-10-sec">10 min 10 sec</button>
+            <button id="set-10-min-10-sec" onClick={() => handleClick(10, 10)}>10 min 10 sec</button>
         </div>
     </div>
   )
