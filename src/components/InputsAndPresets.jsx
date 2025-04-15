@@ -1,10 +1,12 @@
 import { StyledInputsAndPresets } from './styles/InputsAndPresets.styled'
 import { useState } from 'react'
 
-const Inputs = () => {
+const Inputs = ({ speak, minutes }) => {
 
   return (
     <>
+      <div>{speak}</div>
+      <p>{minutes} minutes</p>
       <div class="inputs">
         <input id="minutes-input" type="number" placeholder="Minutes" />
         {/* <button id="set-minutes">Set</button> */}
@@ -17,35 +19,36 @@ const Inputs = () => {
   )
 }
 
-const PresetTimes = () => {
+const PresetTimes = ({ onSetPreset }) => {
 
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+  // const [minutes, setMinutes] = useState(0)
+  // const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
 
-  const handleClick = (mins, secs) => {
-    setMinutes(mins)
-    setSeconds(
-      secs.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
-    )
-  }
+  // const handleClick = (mins, secs) => {
+  //   setMinutes(mins)
+  //   setSeconds(
+  //     secs.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
+  //   )
+  // }
 
   
 
   return (
     <div class="preset-btns-big-box">
       <div id="mini-clock">
-        <span id="mins">
+        {/* <span id="mins">
           {minutes}:
         </span>
         <span id="secs">
           {seconds}
-        </span>
+        </span> */}
       </div>
         <div class="preset-btns-sml-box">
-            <button id="set-1-min" onClick={() => handleClick(1, 0)}>1 min</button>
-            <button id="set-20-sec"  onClick={() => handleClick(0, 20)}>20 sec</button>
+            {/* <button id="set-1-min" onClick={() => handleClick(1, 0)}>1 min</button>
+            <button id="set-20-sec" onClick={() => handleClick(0, 20)}>20 sec</button> */}
             {/* <div class="break"></div> */}
-            <button id="set-10-min-10-sec" onClick={() => handleClick(10, 10)}>10 min 10 sec</button>
+            <button id="set-10-min-10-sec" onClick={onSetPreset}>10 min 10 sec</button>
+            {/* <button id="set-10-min-10-sec" onClick={() => handleClick(10, 10)}>10 min 10 sec</button> */}
         </div>
     </div>
   )
@@ -53,10 +56,23 @@ const PresetTimes = () => {
 
 const InputsAndPresets = () => {
 
+  const [speak, setSpeak] = useState('hello there')
+  const [minutes, setMinutes] = useState(0)
+  const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+  console.log(minutes)
+
+  const handleOnSetPreset = (mins, secs) => {
+    setMinutes(mins)
+    setSeconds(
+      secs.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})
+    )
+  }
+
   return (
     <StyledInputsAndPresets>
-      <Inputs />
-      <PresetTimes />
+      <Inputs speak={speak} minutes={minutes} />
+      <PresetTimes onSetPreset={() => setMinutes(10)} />
     </StyledInputsAndPresets>
   )
 }
