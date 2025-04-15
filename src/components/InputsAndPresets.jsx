@@ -70,27 +70,29 @@ const InputsAndPresets = () => {
   // }
 
   // idk why but I'm unable to get this function to fire when I pass it in as the handler like so: <PresetTimes onSetPreset={() => handleOnSetPreset} />
-  const handleOnSetPreset = () => {
+  const handleOnSetPreset100 = () => {
+    setMinutes(1);
+    setSeconds((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+  }
+  const handleOnSetPreset020 = () => {
+    setMinutes(0);
+    setSeconds(20)
+  }
+  const handleOnSetPreset1010 = () => {
     setMinutes(10);
     setSeconds(10)
   }
 
+
+
   return (
     <StyledInputsAndPresets>
       <Inputs minutes={minutes} seconds={seconds} />
-      <PresetTimes onSetPreset100={() => {
-          setMinutes(1)
-          setSeconds(0)
-        }
-      } onSetPreset020={() => {
-          setMinutes(0)
-          setSeconds(20)
-        }
-      } onSetPreset1010={() => {
-          setMinutes(10)
-          setSeconds(10)
-        }
-      }/>
+      <PresetTimes 
+        onSetPreset100={handleOnSetPreset100} 
+        onSetPreset020={handleOnSetPreset020} 
+        onSetPreset1010={handleOnSetPreset1010}
+      />
     </StyledInputsAndPresets>
   )
 }
