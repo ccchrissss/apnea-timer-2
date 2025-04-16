@@ -6,6 +6,7 @@ const Inputs = ({ minutes, seconds }) => {
   return (
     <>
       <p>{minutes} min {seconds} sec</p>
+
       <div class="break"></div>
       <div class="inputs">
         <input id="minutes-input" type="number" placeholder="Minutes" />
@@ -19,7 +20,7 @@ const Inputs = ({ minutes, seconds }) => {
   )
 }
 
-const PresetTimes = ({ onSetPreset100, onSetPreset020, onSetPreset1010 }) => {
+const PresetTimes = ({ onSetPreset100, onSetPreset020, onSetPreset1010, onSetTime123 }) => {
 
   // const [minutes, setMinutes] = useState(0)
   // const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
@@ -50,11 +51,15 @@ const PresetTimes = ({ onSetPreset100, onSetPreset020, onSetPreset1010 }) => {
             <button id="set-10-min-10-sec" onClick={onSetPreset1010}>10 min 10 sec</button>
             {/* <button id="set-10-min-10-sec" onClick={() => handleClick(10, 10)}>10 min 10 sec</button> */}
         </div>
+        <div class="break"></div>
+        <div>
+          <button onClick={onSetTime123}>set time 1:23</button>
+        </div>
     </div>
   )
 }
 
-const InputsAndPresets = () => {
+const InputsAndPresets = ({ handleOnSetTime123 }) => {
 
   const [presetSeconds, setPresetSeconds] = useState(0)
   const [presetMinutes, setPresetMinutes] = useState(0)
@@ -92,6 +97,7 @@ const InputsAndPresets = () => {
         onSetPreset100={handleOnSetPreset100} 
         onSetPreset020={handleOnSetPreset020} 
         onSetPreset1010={handleOnSetPreset1010}
+        onSetTime123={handleOnSetTime123}
       />
     </StyledInputsAndPresets>
   )

@@ -3,11 +3,11 @@
 import { StyledClock } from './styles/Clock.styled'
 
 
-const CountdownTimer = () => {
+const CountdownTimer = ({ minutes, seconds }) => {
 
   return (
     <>
-      <p id="countdown">0:00</p>
+      <p id="countdown">{minutes}:{seconds}</p>
       <div class="break"></div>
     </>
   )
@@ -26,11 +26,11 @@ const TimerButtons = () => {
   )
 }
 
-const Clock = () => {
+const Clock = ({ minutes, seconds }) => {
 
   return (
     <StyledClock>
-      <CountdownTimer />
+      <CountdownTimer minutes={minutes} seconds={seconds} />
       <TimerButtons />
     </StyledClock>
   )
