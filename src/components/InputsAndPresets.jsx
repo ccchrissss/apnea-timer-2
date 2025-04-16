@@ -1,12 +1,10 @@
 import { StyledInputsAndPresets } from './styles/InputsAndPresets.styled'
-import { useState } from 'react'
+// import { useState } from 'react'
 
-const Inputs = ({ minutes, seconds }) => {
+const Inputs = () => {
 
   return (
     <>
-      <p>{minutes} min {seconds} sec</p>
-
       <div class="break"></div>
       <div class="inputs">
         <input id="minutes-input" type="number" placeholder="Minutes" />
@@ -36,14 +34,6 @@ const PresetTimes = ({ onSetPreset100, onSetPreset020, onSetPreset1010, onSetTim
 
   return (
     <div class="preset-btns-big-box">
-      <div id="mini-clock">
-        {/* <span id="mins">
-          {minutes}:
-        </span>
-        <span id="secs">
-          {seconds}
-        </span> */}
-      </div>
         <div class="preset-btns-sml-box">
             <button id="set-1-min" onClick={onSetPreset100}>1 min</button>
             <button id="set-20-sec" onClick={onSetPreset020}>20 sec</button>
@@ -59,12 +49,12 @@ const PresetTimes = ({ onSetPreset100, onSetPreset020, onSetPreset1010, onSetTim
   )
 }
 
-const InputsAndPresets = ({ handleOnSetTime123 }) => {
+const InputsAndPresets = ({ handleOnSetPreset100, handleOnSetPreset020, handleOnSetPreset1010, handleOnSetTime123 }) => {
 
-  const [presetSeconds, setPresetSeconds] = useState(0)
-  const [presetMinutes, setPresetMinutes] = useState(0)
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+  // const [presetSeconds, setPresetSeconds] = useState(0)
+  // const [presetMinutes, setPresetMinutes] = useState(0)
+  // const [minutes, setMinutes] = useState(0)
+  // const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
 
 
   // const handleOnSetPreset = (mins, secs) => {
@@ -74,25 +64,11 @@ const InputsAndPresets = ({ handleOnSetTime123 }) => {
   //   )
   // }
 
-  // idk why but I'm unable to get this function to fire when I pass it in as the handler like so: <PresetTimes onSetPreset={() => handleOnSetPreset} />
-  const handleOnSetPreset100 = () => {
-    setMinutes(1);
-    setSeconds((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
-  }
-  const handleOnSetPreset020 = () => {
-    setMinutes(0);
-    setSeconds(20)
-  }
-  const handleOnSetPreset1010 = () => {
-    setMinutes(10);
-    setSeconds(10)
-  }
-
 
 
   return (
     <StyledInputsAndPresets>
-      <Inputs minutes={minutes} seconds={seconds} />
+      <Inputs />
       <PresetTimes 
         onSetPreset100={handleOnSetPreset100} 
         onSetPreset020={handleOnSetPreset020} 
