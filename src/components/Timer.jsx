@@ -26,6 +26,22 @@ function Timer() {
     setSeconds((23).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
   }
 
+
+  const handleOnSetTimerFromInputs = (e) => {
+
+    e.preventDefault()
+    console.log(e)
+    setMinutes(5678)
+    console.log(
+      'mins', minutes,
+      'secs', seconds
+    )
+    // const inputMins = Document.querySelector('#minutes-input')
+    // console.log('inputMins: ', inputMins)
+    // setMinutes()
+    console.log('handle on set timer from inputs')
+  }
+
   return (
     <>
       <Clock minutes={minutes} seconds={seconds} />
@@ -34,6 +50,7 @@ function Timer() {
         handleOnSetPreset020={handleOnSetPreset020} 
         handleOnSetPreset1010={handleOnSetPreset1010}
         handleOnSetTime123={handleOnSetTime123} 
+        handleOnSetTimerFromInputs={handleOnSetTimerFromInputs} 
       />
     </>
 

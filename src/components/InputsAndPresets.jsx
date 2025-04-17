@@ -1,18 +1,31 @@
 import { StyledInputsAndPresets } from './styles/InputsAndPresets.styled'
-// import { useState } from 'react'
+import { useRef } from 'react'
 
-const Inputs = () => {
+const Inputs = ({ onSetTimerFromInputs }) => {
+
+
+  // const inputRefMinutes = useRef()
+  // const inputRefSeconds = useRef()
 
   return (
     <>
       <div class="break"></div>
-      <div class="inputs">
+      <form class="inputs">
         <input id="minutes-input" type="number" placeholder="Minutes" />
+        {/* ref={inputRefMinutes} /> */}
         {/* <button id="set-minutes">Set</button> */}
         {/* <div class="break"></div> */}
         <input id="seconds-input" type="number" placeholder="Seconds" />
-        <button id="set-seconds">Set</button>
-      </div>
+        {/* ref={inputRefSeconds} /> */}
+        <button id="set-seconds" onClick={onSetTimerFromInputs}>Set</button>
+          {/* // (e) => {
+          // e.preventDefault()
+          // console.log('target value', e.target.value)
+          // setMinutes(e.target.value)
+          // console.log('mins', inputRefMinutes.current.value)
+          // console.log('secs', inputRefSeconds.current.value)}}>Set</button> */}
+        {/* <button onClick></button> */}
+      </form>
       {/* <div class="break"></div> */}
     </>
   )
@@ -49,7 +62,10 @@ const PresetTimes = ({ onSetPreset100, onSetPreset020, onSetPreset1010, onSetTim
   )
 }
 
-const InputsAndPresets = ({ handleOnSetPreset100, handleOnSetPreset020, handleOnSetPreset1010, handleOnSetTime123 }) => {
+const InputsAndPresets = ({ handleOnSetPreset100, handleOnSetPreset020, handleOnSetPreset1010, handleOnSetTime123, handleOnSetTimerFromInputs }) => {
+
+  // handleOnSetTimerFromInputs 
+
 
   // const [presetSeconds, setPresetSeconds] = useState(0)
   // const [presetMinutes, setPresetMinutes] = useState(0)
@@ -68,7 +84,7 @@ const InputsAndPresets = ({ handleOnSetPreset100, handleOnSetPreset020, handleOn
 
   return (
     <StyledInputsAndPresets>
-      <Inputs />
+      <Inputs onSetTimerFromInputs={handleOnSetTimerFromInputs} />
       <PresetTimes 
         onSetPreset100={handleOnSetPreset100} 
         onSetPreset020={handleOnSetPreset020} 
