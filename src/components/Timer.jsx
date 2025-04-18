@@ -31,6 +31,9 @@ function Timer() {
 
     setMinutes(minsFromForm)
     setSeconds((secsFromForm).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+    // console.log(typeof minutes)
+    // console.log(typeof seconds)
   }
 
   return (
