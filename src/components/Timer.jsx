@@ -30,16 +30,12 @@ function Timer() {
   const handleOnSetTimerFromInputs = (e) => {
 
     e.preventDefault()
-    console.log(e)
-    setMinutes(5678)
-    console.log(
-      'mins', minutes,
-      'secs', seconds
-    )
-    // const inputMins = Document.querySelector('#minutes-input')
-    // console.log('inputMins: ', inputMins)
-    // setMinutes()
-    console.log('handle on set timer from inputs')
+
+    const minsFromForm = +e.target.form[0].value
+    const secsFromForm = +e.target.form[1].value
+
+    setMinutes(minsFromForm)
+    setSeconds((secsFromForm).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
   }
 
   return (
