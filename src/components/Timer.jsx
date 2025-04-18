@@ -2,6 +2,7 @@ import Clock from './Clock'
 import InputsAndPresets from './InputsAndPresets'
 import { useState } from 'react'
 
+
 function Timer() {
 
   const [minutes, setMinutes] = useState(0)
@@ -21,12 +22,6 @@ function Timer() {
     setSeconds(10)
   }
 
-  const handleOnSetTime123 = () => {
-    setMinutes(1)
-    setSeconds((23).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
-  }
-
-
   const handleOnSetTimerFromInputs = (e) => {
 
     e.preventDefault()
@@ -45,7 +40,6 @@ function Timer() {
         handleOnSetPreset100={handleOnSetPreset100} 
         handleOnSetPreset020={handleOnSetPreset020} 
         handleOnSetPreset1010={handleOnSetPreset1010}
-        handleOnSetTime123={handleOnSetTime123} 
         handleOnSetTimerFromInputs={handleOnSetTimerFromInputs} 
       />
     </>
