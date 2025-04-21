@@ -8,7 +8,7 @@ function Timer() {
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
   const [lastMinutes, setLastMinutes] = useState(0)
-  const [lastSeconds, setLastSeconds] = useState(0)
+  const [lastSeconds, setLastSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
 
 
   const handleOnSetPreset100 = () => {
