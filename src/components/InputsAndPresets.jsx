@@ -7,8 +7,9 @@ const Inputs = ({ onSetTimerFromInputs }) => {
     <>
       <div class="break"></div>
       <form class="inputs">
-        <input id="minutes-input" type="number" placeholder="Minutes" />
-        <input id="seconds-input" type="number" placeholder="Seconds" />
+        
+        <input id="minutes-input" type="number" placeholder="1" min="0" max="10" step="1" default="1" />
+        <input id="seconds-input" type="number" placeholder="15" min="0" max="59" step="1" default="" />
         <button id="set-seconds" onClick={onSetTimerFromInputs}>Set</button>
       </form>
       {/* <div class="break"></div> */}
