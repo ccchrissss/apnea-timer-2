@@ -36,9 +36,25 @@ function Timer() {
     // console.log(typeof seconds)
   }
 
+
+
+  const handleClearTimer = () => {
+    console.log('clear timer')
+    setMinutes(0)
+    setSeconds((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+  }
+
+  const handleResetTimerToLast = () => {
+    console.log('reset timer to last')
+  }
+
   return (
     <>
-      <Clock minutes={minutes} seconds={seconds} />
+      <Clock 
+        minutes={minutes} seconds={seconds} 
+        handleClearTimer={handleClearTimer}
+        handleResetTimerToLast={handleResetTimerToLast}
+      />
       <InputsAndPresets
         handleOnSetPreset100={handleOnSetPreset100} 
         handleOnSetPreset020={handleOnSetPreset020} 

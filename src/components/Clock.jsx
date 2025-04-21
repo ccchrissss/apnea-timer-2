@@ -13,25 +13,28 @@ const CountdownTimer = ({ minutes, seconds }) => {
   )
 }
 
-const TimerButtons = () => {
+const TimerButtons = ({ onClearTimer, onResetTimerToLast }) => {
 
   return (
     <div class="timer-btns">
         <button id="start-timer">Start</button>
         <button id="stop-timer">Stop</button>
         {/* <div class="break"></div> */}
-        <button id="clear-timer">Clear </button>
-        <button id="reset-timer">Reset to Last</button>
+        <button id="clear-timer" onClick={onClearTimer}>Clear </button>
+        <button id="reset-timer" onClick={onResetTimerToLast}>Reset to Last</button>
     </div>
   )
 }
 
-const Clock = ({ minutes, seconds }) => {
+const Clock = ({ minutes, seconds, handleClearTimer, handleResetTimerToLast }) => {
 
   return (
     <StyledClock>
       <CountdownTimer minutes={minutes} seconds={seconds} />
-      <TimerButtons />
+      <TimerButtons 
+        onClearTimer={handleClearTimer} 
+        onResetTimerToLast={handleResetTimerToLast} 
+      />
     </StyledClock>
   )
 }
