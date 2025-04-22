@@ -10,7 +10,11 @@ function Timer() {
   // const [time, setTime] = useState(0)
   const [lastMinutes, setLastMinutes] = useState(0)
   const [lastSeconds, setLastSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+  const [timerId, setTimerId] = useState(null)
   let time = minutes * 60 + +seconds
+  // let timerId;
+  let timerStatus = 'off'
 
   // const convertTimeToSeconds = () => {
     
@@ -43,8 +47,6 @@ function Timer() {
   const handleOnSetPreset1010 = () => {
     setMinutes(10);
     setSeconds(10)
-
-    convertTimeToSeconds()
 
     setLastMinutes(10);
     setLastSeconds(10)
@@ -89,36 +91,29 @@ function Timer() {
   const handleStartTimer = () => {
     console.log('start timer')
 
-    updateCountdown()
+    // updateCountdown()
 
+    if (timerStatus === 'on') {
+        timerStatus = 'on'
+    } else if (timerStatus === 'off') {
+        // stopTimer()
 
+        console.log('startTimerBtn clicked, startTimer function executed')
+        // timerId = setInterval(updateCountdown, 1000)
+        setTimerId(setInterval(updateCountdown, 1000))
 
+        
+        // if (time > 0) {
+        //     doubleBeep.play()
+        // }
+        
+        console.log('timerId', timerId)
 
-    let timerId;
-    let timerStatus = 'off'
+        timerStatus = 'on'
 
-        if (timerStatus === 'on') {
-            timerStatus = 'on'
-        } else if (timerStatus === 'off') {
-            // stopTimer()
+    }
 
-            console.log('startTimerBtn clicked, startTimer function executed')
-            timerId = setInterval(updateCountdown, 1000)
-            
-            // if (time > 0) {
-            //     doubleBeep.play()
-            // }
-            
-            console.log('timerId', timerId)
-
-            timerStatus = 'on'
-
-        }
-
-        console.log(timerStatus)
-
-
-
+    console.log(timerStatus)
 
   }
 
@@ -127,7 +122,7 @@ function Timer() {
     // let time = minutes * 60 + +seconds
 
     console.log('updateCountdown')
-    console.log('time before: ', time)
+    // console.log('time before: ', time)
 
 
     if (time > 0) {
@@ -163,11 +158,25 @@ function Timer() {
     setSeconds(secs)
   }
 
+  const handleStopTimer = () => {
+    timerStatus = 'off'
+    clearInterval(timerId);
+    // release our intervalID from the variable
+    // timerId = null;
+    setTimerId(null)
+
+    console.log(timerStatus)
+    console.log('timerId: ', timerId)
+  }
+
+  console.log('timerId', timerId)
+
   return (
     <>
       <Clock 
         minutes={minutes} seconds={seconds} 
         handleStartTimer={handleStartTimer}
+        handleStopTimer={handleStopTimer}
         handleClearTimer={handleClearTimer}
         handleResetTimerToLast={handleResetTimerToLast}
       />
