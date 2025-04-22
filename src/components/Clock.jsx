@@ -13,11 +13,11 @@ const CountdownTimer = ({ minutes, seconds }) => {
   )
 }
 
-const TimerButtons = ({ onClearTimer, onResetTimerToLast }) => {
+const TimerButtons = ({ onStartTimer, onClearTimer, onResetTimerToLast }) => {
 
   return (
     <div class="timer-btns">
-        <button id="start-timer">Start</button>
+        <button id="start-timer" onClick={onStartTimer}>Start</button>
         <button id="stop-timer">Stop</button>
         {/* <div class="break"></div> */}
         <button id="clear-timer" onClick={onClearTimer}>Clear </button>
@@ -26,12 +26,13 @@ const TimerButtons = ({ onClearTimer, onResetTimerToLast }) => {
   )
 }
 
-const Clock = ({ minutes, seconds, handleClearTimer, handleResetTimerToLast }) => {
+const Clock = ({ minutes, seconds, handleStartTimer, handleClearTimer, handleResetTimerToLast }) => {
 
   return (
     <StyledClock>
       <CountdownTimer minutes={minutes} seconds={seconds} />
       <TimerButtons 
+        onStartTimer={handleStartTimer}
         onClearTimer={handleClearTimer} 
         onResetTimerToLast={handleResetTimerToLast} 
       />
