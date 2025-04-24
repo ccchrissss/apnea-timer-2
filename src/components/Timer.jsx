@@ -14,6 +14,7 @@ function Timer() {
   const [timerId, setTimerId] = useState(null)
   let time = minutes * 60 + +seconds
   // let timerId;
+  let interval
   let timerStatus = 'off'
 
   // const convertTimeToSeconds = () => {
@@ -100,14 +101,16 @@ function Timer() {
 
         console.log('startTimerBtn clicked, startTimer function executed')
         // timerId = setInterval(updateCountdown, 1000)
-        setTimerId(setInterval(updateCountdown, 1000))
+        interval = setInterval(updateCountdown, 1000)
+        console.log('interval: ', interval)
+        // setTimerId(interval)
 
         
         // if (time > 0) {
         //     doubleBeep.play()
         // }
         
-        console.log('timerId', timerId)
+        // console.log('timerId', timerId)
 
         timerStatus = 'on'
 
@@ -126,50 +129,72 @@ function Timer() {
 
 
     if (time > 0) {
+
         time--
-        // console.log(time);
-    }
-    // } else {
+        console.log(time);
 
-    //     if (timerId) {
-    //         console.log('timer has ended. clearing interval', timerId)
-    //         clearInterval(timerId)
+        // console.log('timerId: ', timerId)
+        console.log('interval: ', interval)
+        console.log('counting')
+        // console.log('time after: ', time)
+        let mins = Math.floor(time / 60);
+        let secs = time % 60;
+        // console.log(`minutes: ${minutes}  |  seconds: ${seconds}`)
 
-    //         clearTimer()
-    //     }
+        // add a zero to seconds when it is less than 10
+        // if (seconds < 10) {
+        //     seconds = `0${seconds}`
+        // };
+        // console.log(`${minutes}:${seconds}`)
 
-    // };
+        // countdownEl.innerHTML = `${minutes}:${seconds}`;
 
-    console.log('counting')
-    console.log('time after: ', time)
-    let mins = Math.floor(time / 60);
-    let secs = time % 60;
-    // console.log(`minutes: ${minutes}  |  seconds: ${seconds}`)
+        setMinutes(mins)
+        setSeconds((secs).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
 
-    // add a zero to seconds when it is less than 10
-    // if (seconds < 10) {
-    //     seconds = `0${seconds}`
-    // };
-    // console.log(`${minutes}:${seconds}`)
+    } else {
 
-    // countdownEl.innerHTML = `${minutes}:${seconds}`;
+        console.log(time)
 
-    setMinutes(mins)
-    setSeconds(secs)
+        console.log(timerStatus)
+        // console.log('timerId: ', timerId)
+        // setTimerId(clearInterval(timerId))
+
+        if (interval) {
+            console.log('timer has ended. clearing interval', timerId)
+
+            // setTimerId(null)
+            // clearInterval(timerId)
+
+            handleStopTimer()
+
+
+            console.log(timerStatus)
+            // console.log('timerId: ', timerId)
+
+            // clearTimer()
+        }
+
+    };
+
+    
   }
 
   const handleStopTimer = () => {
     timerStatus = 'off'
-    clearInterval(timerId);
+
+    console.log('interval: ', interval)
+    clearInterval(interval);
+    console.log('interval: ', interval)
     // release our intervalID from the variable
     // timerId = null;
-    setTimerId(null)
+    // setTimerId(null)
 
     console.log(timerStatus)
-    console.log('timerId: ', timerId)
+    // console.log('timerId: ', timerId)
   }
 
-  console.log('timerId', timerId)
+  // console.log('timerId', timerId)
 
   return (
     <>
