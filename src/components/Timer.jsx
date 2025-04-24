@@ -1,6 +1,6 @@
 import Clock from './Clock'
 import InputsAndPresets from './InputsAndPresets'
-import { useState, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 
 function Timer() {
@@ -11,10 +11,10 @@ function Timer() {
   const [lastMinutes, setLastMinutes] = useState(0)
   const [lastSeconds, setLastSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
 
-  const [timerId, setTimerId] = useState(null)
+  // const [timerId, setTimerId] = useState(null)
   let time = minutes * 60 + +seconds
+  const intervalRef = useRef(0)
   // let timerId;
-  let interval
   let timerStatus = 'off'
 
   // const convertTimeToSeconds = () => {
@@ -101,8 +101,10 @@ function Timer() {
 
         console.log('startTimerBtn clicked, startTimer function executed')
         // timerId = setInterval(updateCountdown, 1000)
-        interval = setInterval(updateCountdown, 1000)
-        console.log('interval: ', interval)
+        const intervalId = setInterval(updateCountdown, 1000)
+        console.log('intervalId: ', intervalId)
+
+        intervalRef.current = intervalId
         // setTimerId(interval)
 
         
@@ -123,6 +125,7 @@ function Timer() {
   const updateCountdown = () => {
 
     // let time = minutes * 60 + +seconds
+    const intervalId = intervalRef.current
 
     console.log('updateCountdown')
     // console.log('time before: ', time)
@@ -134,7 +137,7 @@ function Timer() {
         console.log(time);
 
         // console.log('timerId: ', timerId)
-        console.log('interval: ', interval)
+        console.log('intervalId: ', intervalId)
         console.log('counting')
         // console.log('time after: ', time)
         let mins = Math.floor(time / 60);
@@ -160,16 +163,17 @@ function Timer() {
         // console.log('timerId: ', timerId)
         // setTimerId(clearInterval(timerId))
 
-        if (interval) {
-            console.log('timer has ended. clearing interval', timerId)
+        if (intervalId) {
+            console.log('timer has ended. clearing interval', intervalId)
 
             // setTimerId(null)
             // clearInterval(timerId)
 
-            handleStopTimer()
+            clearInterval(intervalId);
+            // handleStopTimer()
 
 
-            console.log(timerStatus)
+            // console.log(timerStatus)
             // console.log('timerId: ', timerId)
 
             // clearTimer()
@@ -181,11 +185,11 @@ function Timer() {
   }
 
   const handleStopTimer = () => {
-    timerStatus = 'off'
-
-    console.log('interval: ', interval)
-    clearInterval(interval);
-    console.log('interval: ', interval)
+    // timerStatus = 'off'
+    const intervalId = intervalRef.current
+    console.log('intervalId: ', intervalId)
+    
+    clearInterval(intervalId);
     // release our intervalID from the variable
     // timerId = null;
     // setTimerId(null)
