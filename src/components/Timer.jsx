@@ -3,12 +3,8 @@ import InputsAndPresets from './InputsAndPresets'
 import { useState, useRef, useEffect } from 'react'
 
 import beep07a from '../assets/sounds/beep-07a.mp3'
-// import doubleBeep07a from './sounds/double-beep-07a.mp3'
-// import tripleBeep07a from './sounds/triple-beep-07a.mp3'
-
-// const singleBeep = new Audio('./sounds/beep-07a.mp3');
-// const doubleBeep = new Audio('./sounds/double-beep-07a.mp3')
-// const tripleBeep = new Audio('./sounds/triple-beep-07a.mp3')
+import doubleBeep07a from '../assets/sounds/double-beep-07a.mp3'
+import tripleBeep07a from '../assets/sounds/triple-beep-07a.mp3'
 
 
 function Timer() {
@@ -24,6 +20,8 @@ function Timer() {
   let timerStatus = 'off'
 
   const singleBeep = new Audio(beep07a)
+  const doubleBeep = new Audio(doubleBeep07a)
+  const tripleBeep = new Audio(tripleBeep07a)
 
 
 
@@ -97,9 +95,9 @@ function Timer() {
 
         intervalRef.current = intervalId
         
-        // if (time > 0) {
-        //     doubleBeep.play()
-        // }
+        if (time > 0) {
+            doubleBeep.play()
+        }
         
         // console.log('timerId', timerId)
 
@@ -156,9 +154,17 @@ function Timer() {
     if (time === 15) {
       singleBeep.play();
       console.log('singleBeep le play 15');
-  // had to change teh boolean below to seconds === `0${1}` instead of seconds === 1 bc
-  // of the 'if < 10 add a zero to seconds' statement
-  }
+      // had to change teh boolean below to seconds === `0${1}` instead of seconds === 1 bc
+      // of the 'if < 10 add a zero to seconds' statement
+    }
+
+    if (time === 1) {
+      setTimeout( () => {
+          tripleBeep.play();
+
+          console.log('tripleBeep le play 1');
+      }, 1000)
+  } 
   }
 
   const handleStopTimer = () => {
