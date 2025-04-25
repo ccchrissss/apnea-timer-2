@@ -97,7 +97,7 @@ function Timer() {
 
     }
 
-    console.log(timerStatus)
+    // console.log(timerStatus)
   }
 
   const updateCountdown = () => {
@@ -123,9 +123,9 @@ function Timer() {
 
     } else {
 
-        console.log(time)
+        // console.log(time)
 
-        console.log(timerStatus)
+        // console.log(timerStatus)
 
         if (intervalId) {
             // console.log('timer has ended. clearing interval', intervalId)
@@ -148,7 +148,7 @@ function Timer() {
 
     clearInterval(intervalId);
 
-    console.log(timerStatus)
+    // console.log(timerStatus)
   }
 
 
