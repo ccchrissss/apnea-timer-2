@@ -8,7 +8,7 @@ const CountdownTimer = ({ minutes, seconds }) => {
   return (
     <>
       <p id="countdown">{minutes}:{seconds}</p>
-      <div class="break"></div>
+      <div className="break"></div>
     </>
   )
 }
@@ -16,10 +16,10 @@ const CountdownTimer = ({ minutes, seconds }) => {
 const TimerButtons = ({ onStartTimer, onStopTimer, onClearTimer, onResetTimerToLast }) => {
 
   return (
-    <div class="timer-btns">
+    <div className="timer-btns">
         <button id="start-timer" onClick={onStartTimer}>Start</button>
         <button id="stop-timer" onClick={onStopTimer}>Stop</button>
-        {/* <div class="break"></div> */}
+        {/* <div className="break"></div> */}
         <button id="clear-timer" onClick={onClearTimer}>Clear </button>
         <button id="reset-timer" onClick={onResetTimerToLast}>Reset to Last</button>
     </div>
