@@ -2,6 +2,14 @@ import Clock from './Clock'
 import InputsAndPresets from './InputsAndPresets'
 import { useState, useRef, useEffect } from 'react'
 
+import beep07a from '../assets/sounds/beep-07a.mp3'
+// import doubleBeep07a from './sounds/double-beep-07a.mp3'
+// import tripleBeep07a from './sounds/triple-beep-07a.mp3'
+
+// const singleBeep = new Audio('./sounds/beep-07a.mp3');
+// const doubleBeep = new Audio('./sounds/double-beep-07a.mp3')
+// const tripleBeep = new Audio('./sounds/triple-beep-07a.mp3')
+
 
 function Timer() {
 
@@ -14,6 +22,8 @@ function Timer() {
   let time = minutes * 60 + +seconds
   const intervalRef = useRef(0)
   let timerStatus = 'off'
+
+  const singleBeep = new Audio(beep07a)
 
 
 
@@ -138,6 +148,17 @@ function Timer() {
             // clearTimer()
         }
     }
+
+    // console.log(minutes)
+    // console.log(seconds)
+    console.log (time)
+
+    if (time === 15) {
+      singleBeep.play();
+      console.log('singleBeep le play 15');
+  // had to change teh boolean below to seconds === `0${1}` instead of seconds === 1 bc
+  // of the 'if < 10 add a zero to seconds' statement
+  }
   }
 
   const handleStopTimer = () => {
