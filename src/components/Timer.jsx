@@ -149,20 +149,19 @@ function Timer() {
 
     // console.log(minutes)
     // console.log(seconds)
-    console.log (time)
+    // console.log (time)
 
     if (time === 15) {
       singleBeep.play();
-      console.log('singleBeep le play 15');
-      // had to change teh boolean below to seconds === `0${1}` instead of seconds === 1 bc
-      // of the 'if < 10 add a zero to seconds' statement
+      // console.log('singleBeep le play 15');
+
     }
 
     if (time === 1) {
       setTimeout( () => {
           tripleBeep.play();
 
-          console.log('tripleBeep le play 1');
+          // console.log('tripleBeep le play 1');
       }, 1000)
   } 
   }
