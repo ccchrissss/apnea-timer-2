@@ -21,8 +21,16 @@ export const StyledWorkoutTable = styled.section`
   }
 
   tbody > tr:nth-child(odd) {
-  background-color: #D6EEEE;
-}
+    background-color: #D6EEEE;
+  }
+
+  thead > tr > th {
+    padding: 0.5rem;
+  }
+
+  tbody > tr > * {
+    padding: 0.25rem;
+  }
 
 `
 

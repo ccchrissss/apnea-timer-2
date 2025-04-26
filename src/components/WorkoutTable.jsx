@@ -18,21 +18,21 @@ const WorkoutTable = () => {
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <th>set 1.b</th>
-            <th>set 1.h</th>
-            <th>set 1.a</th>
+            <td>set 1.b</td>
+            <td>set 1.h</td>
+            <td>set 1.a</td>
           </tr>
           <tr>
             <th scope="row">2</th>
-            <th>set 2.b</th>
-            <th>set 2.h</th>
-            <th>set 2.a</th>
+            <td>set 2.b</td>
+            <td>set 2.h</td>
+            <td>set 2.a</td>
           </tr>
           <tr>
             <th scope="row">3</th>
-            <th>set 3.b</th>
-            <th>set 3.h</th>
-            <th>set 3.a</th>
+            <td>set 3.b</td>
+            <td>set 3.h</td>
+            <td>set 3.a</td>
           </tr>
         </tbody>
       </table>
