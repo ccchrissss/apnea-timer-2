@@ -1,5 +1,6 @@
 import Clock from './Clock'
 import InputsAndPresets from './InputsAndPresets'
+import WorkoutTable from './WorkoutTable'
 import { useState, useRef, useEffect } from 'react'
 
 import beep07a from '../assets/sounds/beep-07a.mp3'
@@ -193,6 +194,7 @@ function Timer() {
         handleOnSetPreset1010={handleOnSetPreset1010}
         handleOnSetTimerFromInputs={handleOnSetTimerFromInputs} 
       />
+      <WorkoutTable />
     </>
 
   )
