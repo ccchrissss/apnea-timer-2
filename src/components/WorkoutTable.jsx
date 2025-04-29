@@ -6,6 +6,19 @@ const WorkoutTable = () => {
 
   return (
     <StyledWorkoutTable>
+      <fieldset>
+        <legend>Choose your exercise</legend>
+        <div>
+          <input type="radio" id="co2" value="CO2" name="table-type" />
+          <label for="co2">CO2 Table</label>
+        </div>
+        <div>
+          <input type="radio" id="o2" value="O2" name="table-type" />
+          <label for="o2">O2 Table</label>
+        </div>
+      </fieldset>
+      
+
       <table>
         <thead>
           <tr className="categories">

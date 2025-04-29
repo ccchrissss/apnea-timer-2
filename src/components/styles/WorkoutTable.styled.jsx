@@ -4,6 +4,10 @@ export const StyledWorkoutTable = styled.section`
 
   margin: 1rem;
 
+  fieldset {
+    border: none;
+  }
+
   table {
     table-layout: fixed;
     width: 100%;
@@ -26,6 +30,9 @@ export const StyledWorkoutTable = styled.section`
 
   thead > tr > th {
     padding: 0.5rem;
+  }
+  thead > tr > th:nth-child(2) {
+    width: 28%;
   }
 
   tbody > tr > * {
