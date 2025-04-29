@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { StyledWorkoutTable } from './styles/WorkoutTable.styled'
+import { Inputs } from './InputsAndPresets'
 
 const WorkoutTable = () => {
 
@@ -18,6 +19,7 @@ const WorkoutTable = () => {
         </div>
       </fieldset>
       
+      <Inputs />
 
       <table>
         <thead>

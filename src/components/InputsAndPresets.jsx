@@ -1,7 +1,7 @@
 import { StyledInputsAndPresets } from './styles/InputsAndPresets.styled'
+// import Inputs from './Inputs'
 
-
-const Inputs = ({ onSetTimerFromInputs }) => {
+export const Inputs = ({ onSetTimerFromInputs }) => {
 
   return (
     <>
