@@ -7,8 +7,11 @@ export const StyledInputsAndPresets = styled.section`
   row-gap: 1rem;
   justify-content: center;
   margin: 1rem;
-  font-size: rem;
 
+  h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
   .inputs {
       display: flex;
       flex-basis: 50%;

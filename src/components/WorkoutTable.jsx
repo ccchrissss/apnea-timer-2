@@ -19,7 +19,7 @@ const WorkoutTable = () => {
         </div>
       </fieldset>
       
-      <Inputs />
+      <Inputs formName={'tbd'} />
 
       <table>
         <thead>

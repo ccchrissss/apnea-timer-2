@@ -1,12 +1,15 @@
 import { StyledInputsAndPresets } from './styles/InputsAndPresets.styled'
 // import Inputs from './Inputs'
 
-export const Inputs = ({ onSetTimerFromInputs }) => {
+export const Inputs = ({ formName, onSetTimerFromInputs }) => {
 
   return (
     <>
       <div className="break"></div>
+      <h4>{formName}</h4>
+      <div className="break"></div>
       <form className="inputs">
+        {/* <label>{inputsLabel}</label> */}
         {/* <label>Min</label> */}
         <input id="minutes-input" type="number" placeholder="1" min="0" max="10" step="1" />
         {/* <label>Sec</label> */}
@@ -36,7 +39,7 @@ const InputsAndPresets = ({ handleOnSetPreset100, handleOnSetPreset020, handleOn
 
   return (
     <StyledInputsAndPresets>
-      <Inputs onSetTimerFromInputs={handleOnSetTimerFromInputs} />
+      <Inputs formName={'Custom Time'} onSetTimerFromInputs={handleOnSetTimerFromInputs} />
       <PresetTimes 
         onSetPreset100={handleOnSetPreset100} 
         onSetPreset020={handleOnSetPreset020} 
