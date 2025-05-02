@@ -1,4 +1,5 @@
 import Clock from './Clock'
+import WorkoutType from './WorkoutType'
 import InputsAndPresets from './InputsAndPresets'
 import WorkoutTable from './WorkoutTable'
 import { useState, useRef, useEffect } from 'react'
@@ -188,6 +189,7 @@ function Timer() {
         handleClearTimer={handleClearTimer}
         handleResetTimerToLast={handleResetTimerToLast}
       />
+      <WorkoutType />
       <InputsAndPresets
         handleOnSetPreset100={handleOnSetPreset100} 
         handleOnSetPreset020={handleOnSetPreset020} 
