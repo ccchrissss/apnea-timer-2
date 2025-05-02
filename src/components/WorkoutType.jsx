@@ -1,7 +1,7 @@
 import { StyledWorkoutType } from './styles/WorkoutType.styled'
 
 
-const WorkoutType = () => {
+const WorkoutType = ({ handleCustomTimerClick, handlePresetTableClick }) => {
 
 
   return (
@@ -9,8 +9,8 @@ const WorkoutType = () => {
     <StyledWorkoutType>
       <nav>
         <ul>
-          <li>Custom Timer</li>
-          <li>Preset Table</li>
+          <li onClick={handleCustomTimerClick}>Custom Timer</li>
+          <li onClick={handlePresetTableClick}>Preset Table</li>
         </ul>
       </nav>
     </StyledWorkoutType>
