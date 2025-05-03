@@ -77,6 +77,10 @@ export const StyledWorkoutTable = styled.section`
     min-width: 4.5rem;
   }
 
+  /* .hidden {
+    display: none;
+  } */
+
 `
 
 // table {

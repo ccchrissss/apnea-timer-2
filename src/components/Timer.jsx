@@ -13,6 +13,9 @@ function Timer() {
 
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+  const [currentWorkoutType, setCurrentWorkoutType] = useState('custom timer')
+  
   // const [time, setTime] = useState(0)
   const [lastMinutes, setLastMinutes] = useState(0)
   const [lastSeconds, setLastSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
@@ -140,9 +143,13 @@ function Timer() {
 
   const handleCustomTimerClick = () => {
     console.log('handle custom timer click')
+
+    setCurrentWorkoutType('custom timer')
   }
   const handlePresetTableClick = () => {
     console.log('handle preset table click')
+
+    setCurrentWorkoutType('preset table')
   }
 
   const handleOnSetPreset100 = () => {
@@ -204,9 +211,10 @@ function Timer() {
         handleOnSetPreset100={handleOnSetPreset100} 
         handleOnSetPreset020={handleOnSetPreset020} 
         handleOnSetPreset1010={handleOnSetPreset1010}
-        handleOnSetTimerFromInputs={handleOnSetTimerFromInputs} 
+        handleOnSetTimerFromInputs={handleOnSetTimerFromInputs}
+        state={currentWorkoutType}
       />
-      <WorkoutTable />
+      <WorkoutTable state={currentWorkoutType} />
     </>
 
   )
