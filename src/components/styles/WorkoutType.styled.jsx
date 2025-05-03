@@ -22,5 +22,13 @@ export const StyledWorkoutType = styled.section`
     background-color: lightgrey;
     cursor: pointer;
   }
+  ul > li:nth-child(1) {
+    background-color: ${props => props.selection == 'custom timer' ? 'lightgreen' : 'lightgrey'};
+    border: ${props => props.selection == 'custom timer' ? 'solid 3px grey' : 'sold 2px gray'}
+  }
+  ul > li:nth-child(2) {
+    background-color: ${props => props.selection == 'preset table' ? 'lightgreen' : 'lightgrey'};
+    border: ${props => props.selection == 'preset table' ? 'solid 3px grey' : 'sold 2px gray'};
+  }
 
 `

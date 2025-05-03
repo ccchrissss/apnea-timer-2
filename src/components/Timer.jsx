@@ -173,7 +173,6 @@ function Timer() {
     setLastMinutes(10);
     setLastSeconds(10)
   }
-
   const handleOnSetTimerFromInputs = (e) => {
 
     e.preventDefault()
@@ -206,6 +205,7 @@ function Timer() {
       <WorkoutType 
         handleCustomTimerClick={handleCustomTimerClick}
         handlePresetTableClick={handlePresetTableClick}  
+        selection={currentWorkoutType}
       />
       <InputsAndPresets
         handleOnSetPreset100={handleOnSetPreset100} 
