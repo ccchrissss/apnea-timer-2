@@ -7,12 +7,14 @@ const WorkoutType = ({ handleCustomTimerClick, handlePresetTableClick, selection
   return (
 
     <StyledWorkoutType selection={selection}>
-      <nav>
         <ul>
-          <li selection={selection} onClick={handleCustomTimerClick}>Custom Timer</li>
-          <li selection={selection} onClick={handlePresetTableClick}>Preset Table</li>
+          <li selection={selection} onClick={handleCustomTimerClick}>
+            <p>Custom Timer</p>
+          </li>
+          <li selection={selection} onClick={handlePresetTableClick}>
+            <p>Preset Table</p>
+          </li>
         </ul>
-      </nav>
     </StyledWorkoutType>
     
   )
