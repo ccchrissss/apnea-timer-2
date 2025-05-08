@@ -35,11 +35,11 @@ const PresetTimes = ({ onSetPreset100, onSetPreset020, onSetPreset1010 }) => {
   )
 }
 
-const InputsAndPresets = ({ handleOnSetPreset100, handleOnSetPreset020, handleOnSetPreset1010, handleOnSetTimerFromInputs }) => {
+const InputsAndPresets = ({ state, handleOnSetPreset100, handleOnSetPreset020, handleOnSetPreset1010, handleOnSetTimerFromInputs }) => {
 
   return (
-    <StyledInputsAndPresets>
-      <Inputs formName={'Custom Time'} onSetTimerFromInputs={handleOnSetTimerFromInputs} />
+    <StyledInputsAndPresets style={{ display: state == 'custom timer' ? 'flex' : 'none'}}>
+      <Inputs onSetTimerFromInputs={handleOnSetTimerFromInputs} />
       <PresetTimes 
         onSetPreset100={handleOnSetPreset100} 
         onSetPreset020={handleOnSetPreset020} 

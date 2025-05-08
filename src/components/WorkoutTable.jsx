@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { StyledWorkoutTable } from './styles/WorkoutTable.styled'
 import { Inputs } from './InputsAndPresets'
 
-const WorkoutTable = () => {
+const WorkoutTable = ({ state }) => {
 
 
   return (
-    <StyledWorkoutTable>
+    <StyledWorkoutTable style={{ display: state == 'preset table' ? 'flex' : 'none'}}>
       <fieldset>
         <legend>Choose your exercise</legend>
         <div>
@@ -19,7 +19,7 @@ const WorkoutTable = () => {
         </div>
       </fieldset>
       
-      <Inputs formName={'tbd'} />
+      <Inputs />
 
       <table>
         <thead>

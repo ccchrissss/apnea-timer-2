@@ -1,4 +1,5 @@
 import Clock from './Clock'
+import WorkoutType from './WorkoutType'
 import InputsAndPresets from './InputsAndPresets'
 import WorkoutTable from './WorkoutTable'
 import { useState, useRef, useEffect } from 'react'
@@ -12,6 +13,9 @@ function Timer() {
 
   const [minutes, setMinutes] = useState(0)
   const [seconds, setSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+  const [currentWorkoutType, setCurrentWorkoutType] = useState('custom timer')
+  
   // const [time, setTime] = useState(0)
   const [lastMinutes, setLastMinutes] = useState(0)
   const [lastSeconds, setLastSeconds] = useState((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
@@ -23,49 +27,6 @@ function Timer() {
   const singleBeep = new Audio(beep07a)
   const doubleBeep = new Audio(doubleBeep07a)
   const tripleBeep = new Audio(tripleBeep07a)
-
-
-
-
-  const handleOnSetPreset100 = () => {
-    setMinutes(1);
-    setSeconds((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
-
-    setLastMinutes(1);
-    setLastSeconds((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
-  }
-  const handleOnSetPreset020 = () => {
-    setMinutes(0);
-    setSeconds(20)
-
-    setLastMinutes(0);
-    setLastSeconds(20)
-  }
-  const handleOnSetPreset1010 = () => {
-    setMinutes(10);
-    setSeconds(10)
-
-    setLastMinutes(10);
-    setLastSeconds(10)
-  }
-
-  const handleOnSetTimerFromInputs = (e) => {
-
-    e.preventDefault()
-
-    const minsFromForm = +e.target.form[0].value
-    const secsFromForm = +e.target.form[1].value
-
-    setMinutes(minsFromForm)
-    setSeconds((secsFromForm).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
-
-    setLastMinutes(minsFromForm)
-    setLastSeconds((secsFromForm).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
-
-
-    // console.log(typeof minutes)
-    // console.log(typeof seconds)
-  }
 
 
   const handleClearTimer = () => {
@@ -179,6 +140,59 @@ function Timer() {
   }
 
 
+
+  const handleCustomTimerClick = () => {
+    console.log('handle custom timer click')
+
+    setCurrentWorkoutType('custom timer')
+  }
+  const handlePresetTableClick = () => {
+    console.log('handle preset table click')
+
+    setCurrentWorkoutType('preset table')
+  }
+
+  const handleOnSetPreset100 = () => {
+    setMinutes(1);
+    setSeconds((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+    setLastMinutes(1);
+    setLastSeconds((0).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+  }
+  const handleOnSetPreset020 = () => {
+    setMinutes(0);
+    setSeconds(20)
+
+    setLastMinutes(0);
+    setLastSeconds(20)
+  }
+  const handleOnSetPreset1010 = () => {
+    setMinutes(10);
+    setSeconds(10)
+
+    setLastMinutes(10);
+    setLastSeconds(10)
+  }
+  const handleOnSetTimerFromInputs = (e) => {
+
+    e.preventDefault()
+
+    const minsFromForm = +e.target.form[0].value
+    const secsFromForm = +e.target.form[1].value
+
+    setMinutes(minsFromForm)
+    setSeconds((secsFromForm).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+    setLastMinutes(minsFromForm)
+    setLastSeconds((secsFromForm).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}))
+
+
+    // console.log(typeof minutes)
+    // console.log(typeof seconds)
+  }
+
+
+
   return (
     <>
       <Clock 
@@ -188,13 +202,19 @@ function Timer() {
         handleClearTimer={handleClearTimer}
         handleResetTimerToLast={handleResetTimerToLast}
       />
+      <WorkoutType 
+        handleCustomTimerClick={handleCustomTimerClick}
+        handlePresetTableClick={handlePresetTableClick}  
+        selection={currentWorkoutType}
+      />
       <InputsAndPresets
         handleOnSetPreset100={handleOnSetPreset100} 
         handleOnSetPreset020={handleOnSetPreset020} 
         handleOnSetPreset1010={handleOnSetPreset1010}
-        handleOnSetTimerFromInputs={handleOnSetTimerFromInputs} 
+        handleOnSetTimerFromInputs={handleOnSetTimerFromInputs}
+        state={currentWorkoutType}
       />
-      <WorkoutTable />
+      <WorkoutTable state={currentWorkoutType} />
     </>
 
   )
