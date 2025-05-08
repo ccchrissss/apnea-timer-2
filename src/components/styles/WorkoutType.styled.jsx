@@ -26,13 +26,16 @@ export const StyledWorkoutType = styled.section`
   }
 
   li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40px;
     padding: 0.5rem;
     border: solid 2px gray;
     border-radius: 10px;
     font-size: 1rem;
     flex: 40%;
-    min-height: 3rem;
+    /* min-height: 3rem; */
   }
   ul > li:nth-child(1) {
     background-color: ${props => props.selection == 'custom timer' ? 'lightgreen' : 'lightgrey'};
