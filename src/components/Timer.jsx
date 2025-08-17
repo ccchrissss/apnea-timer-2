@@ -214,7 +214,7 @@ function Timer() {
         handleOnSetTimerFromInputs={handleOnSetTimerFromInputs}
         state={currentWorkoutType}
       />
-      <WorkoutTable state={currentWorkoutType} />
+      <WorkoutTable selectedTab={currentWorkoutType} />
     </>
 
   )

@@ -4,8 +4,15 @@ export const StyledWorkoutTable = styled.section`
 
   margin: 1rem;
 
+  .exercise-choice {
+    display: flex;
+    flex-direction: column;
+  }
+
   fieldset {
     border: none;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   table {

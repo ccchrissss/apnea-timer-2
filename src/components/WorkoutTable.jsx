@@ -2,22 +2,30 @@ import { useState } from 'react'
 import { StyledWorkoutTable } from './styles/WorkoutTable.styled'
 import { Inputs } from './InputsAndPresets'
 
-const WorkoutTable = ({ state }) => {
+const WorkoutTable = ({ selectedTab }) => {
 
+  const [selectedExercise, setSelectedExercise] = useState(null)
 
   return (
-    <StyledWorkoutTable style={{ display: state == 'preset table' ? 'flex' : 'none'}}>
-      <fieldset>
-        <legend>Choose your exercise</legend>
-        <div>
-          <input type="radio" id="co2" value="CO2" name="table-type" />
-          <label for="co2">CO2 Table</label>
-        </div>
-        <div>
-          <input type="radio" id="o2" value="O2" name="table-type" />
-          <label for="o2">O2 Table</label>
-        </div>
-      </fieldset>
+    <StyledWorkoutTable style={{ display: selectedTab == 'preset table' ? 'flex' : 'none'}}>
+      <div className="exercise-choice">
+        <fieldset>
+          <legend>Choose your exercise</legend>
+          <div>
+            <input type="radio" id="co2" value="CO2" name="table-type" onClick={() => setSelectedExercise('co2')} />
+            <label for="co2">CO2 Table</label>
+          </div>
+          <div>
+            <input type="radio" id="o2" value="O2" name="table-type" onClick={() => setSelectedExercise('o2')} />
+            <label for="o2">O2 Table</label>
+          </div>
+        </fieldset>
+        <div className="break"></div>
+        <p>
+          {selectedExercise == 'co2' ? 'Breathe Up remains constant, Hold increases' : selectedExercise == 'o2' ? 'Breathe Up decreases, Hold remains constant' : ''}
+        </p>
+      </div>
+      
       
       <Inputs />
 
