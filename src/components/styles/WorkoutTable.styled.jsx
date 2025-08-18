@@ -7,6 +7,7 @@ export const StyledWorkoutTable = styled.section`
   .exercise-choice {
     display: flex;
     flex-direction: column;
+    justify-content: start;
   }
 
   fieldset {

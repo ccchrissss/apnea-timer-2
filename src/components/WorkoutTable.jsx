@@ -4,7 +4,7 @@ import { Inputs } from './InputsAndPresets'
 
 const WorkoutTable = ({ selectedTab }) => {
 
-  const [selectedExercise, setSelectedExercise] = useState(null)
+  const [selectedExercise, setSelectedExercise] = useState('')
 
   return (
     <StyledWorkoutTable style={{ display: selectedTab == 'preset table' ? 'flex' : 'none'}}>
@@ -22,10 +22,9 @@ const WorkoutTable = ({ selectedTab }) => {
         </fieldset>
         <div className="break"></div>
         <p>
-          {selectedExercise == 'co2' ? 'Breathe Up remains constant, Hold increases' : selectedExercise == 'o2' ? 'Breathe Up decreases, Hold remains constant' : ''}
+          {selectedExercise == 'co2' ? (<span>{'Breathe Up: constant'}<br />{'Hold: increases'}</span>) : selectedExercise == 'o2' ? (<span>{'Breathe Up: decreases'}<br />{'Hold: constant'}</span>) : ''}
         </p>
       </div>
-      
       
       <Inputs />
 
