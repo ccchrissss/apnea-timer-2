@@ -8,6 +8,7 @@ export const StyledWorkoutTable = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: start;
+    width: 100%;
   }
 
   fieldset {
