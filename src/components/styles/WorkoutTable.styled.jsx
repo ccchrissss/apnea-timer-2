@@ -11,6 +11,10 @@ export const StyledWorkoutTable = styled.section`
     width: 100%;
   }
 
+  /* #exercise-explanation {
+    min-height: 3rem;
+  } */
+
   fieldset {
     border: none;
     line-height: 1.5rem;

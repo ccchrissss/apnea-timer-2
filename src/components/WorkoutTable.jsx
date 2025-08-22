@@ -5,6 +5,11 @@ import { Inputs } from './InputsAndPresets'
 const WorkoutTable = ({ selectedTab }) => {
 
   const [selectedExercise, setSelectedExercise] = useState('')
+  const [workoutSet1, setWorkoutSet1] = useState({
+    breathe: { minutes: 0, seconds: 0},
+    hold: { minutes: 0, seconds: 0},
+    actual: { minutes: 0, seconds: 0},
+  })
 
   return (
     <StyledWorkoutTable style={{ display: selectedTab == 'preset table' ? 'flex' : 'none'}}>
@@ -21,12 +26,23 @@ const WorkoutTable = ({ selectedTab }) => {
           </div>
         </fieldset>
         <div className="break"></div>
-        <p>
+        <p id="exercise-explanation">
           {selectedExercise == 'co2' ? (<span>{'Breathe Up: constant'}<br />{'Hold: increases'}</span>) : selectedExercise == 'o2' ? (<span>{'Breathe Up: decreases'}<br />{'Hold: constant'}</span>) : ''}
         </p>
       </div>
       
-      <Inputs />
+      <Inputs onSetTimerFromInputs={ e => {
+          e.preventDefault();
+          // console.log(e)
+          const eMins = +e.target.form[0].value
+          const eSecs = +e.target.form[1].value
+
+          setWorkoutSet1({
+            breathe: { minutes: eMins, seconds: eSecs},
+            hold: { minutes: 0, seconds: '00'},
+            actual: { minutes: 0, seconds: '00'},
+          })
+        }} />
 
       <table>
         <thead>
@@ -40,9 +56,9 @@ const WorkoutTable = ({ selectedTab }) => {
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>set 1.b</td>
-            <td>set 1.h</td>
-            <td>set 1.a</td>
+            <td>{workoutSet1.breathe.minutes}:{workoutSet1.breathe.seconds}</td>
+            <td>{workoutSet1.hold.minutes}:{workoutSet1.hold.seconds}</td>
+            <td>{workoutSet1.actual.minutes}:{workoutSet1.actual.seconds}</td>
           </tr>
           <tr>
             <th scope="row">2</th>
